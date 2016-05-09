@@ -90,6 +90,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+STATICFILES_FINDERS = \
+("django.contrib.staticfiles.finders.FileSystemFinder",
+"django.contrib.staticfiles.finders.AppDirectoriesFinder")
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
