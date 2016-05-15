@@ -75,8 +75,8 @@ class StudentDeleteView(DeleteView):
         context['title'] = "Student info suppression"
         return context
 
-    def form_valid(self, form):
+    def delete(self, form):
         app = Student.objects.get(self.pk)
         messages.success(self.request, "Info on %s has been sucessfully deleted." % app.full_name())
         app = app.delete()
-        return super(StudentDeleteView, self).form_valid(form)
+        return super(StudentDeleteView, self).delete(form)

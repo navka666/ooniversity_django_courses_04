@@ -76,11 +76,11 @@ class CourseDeleteView(DeleteView):
         context["title"] = "Course deletion"
         return context
 
-    def form_valid(self, form):
+    def delete(self, form):
         app = Course.objects.get(self.pk)
         messages.success(self.request, u"Info on %s has been sucessfully deleted." % app.full_name())
         app = app.delete()
-        return super(CourseDeleteView, self).form_valid(form)
+        return super(CourseDeleteView, self).delete(form)
 
 
 class LessonCreateView(CreateView):
